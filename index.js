@@ -15,7 +15,7 @@ mongoose.connect('mongodb+srv://happybeen:abcd1234@jsstudy.smv9w.mongodb.net/<db
 }).then(()=>console.log('Mongo DB Connected...'))
   .catch(err=>console.log(err))
 
-app.get('/',(req,res)=>res.send('Hello World!'))
+app.get('/',(req,res)=>res.send('Hello World! node mon test'))
 
 app.post('/register',(req,res)=>{
     //회원가입시 필요한 정보들을 client로 부터 가져와 DB에 넣어줌
