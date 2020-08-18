@@ -4,13 +4,14 @@ const bodyParser=require('body-parser');
 const app=express()
 const port=3000
 const {User}=require("./models/user");
+const config=require('./config/key');
 
 //body-parser application 분석 (9-11)
 app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://happybeen:abcd1234@jsstudy.smv9w.mongodb.net/<dbname>?retryWrites=true&w=majority',{
+mongoose.connect(config.mongoURI,{
     useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology:true, useFindAndModify:false
 }).then(()=>console.log('Mongo DB Connected...'))
   .catch(err=>console.log(err))
