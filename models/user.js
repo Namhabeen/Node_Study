@@ -77,7 +77,7 @@ userSchema.pre('save', function (next) {
 })
 
 //조건문 체크 잘하기! => 비밀번호 확인 부분에서 
-//콜백함수 안썼다는 사실을 깜빡하여 시간을 꽤 낭비함 ㅜㅜ! 
+//콜백함수 안썼다는 사실을 깜빡하여 시간을 꽤 낭비함 ㅜㅜ!
 userSchema.methods.comparePassword=function(plainPassword,cb){
     bcrypt.compare(plainPassword,this.password, function(err,isMatch){
         if(err) return cb(err)
@@ -94,6 +94,19 @@ userSchema.methods.generateToken=function(cb){
     user.save(function(err,user){
         if(err) return cb(err)
         cb(null,user)
+    })
+}
+
+userSchema.statics.findByToken=function (token, cb){
+    var user=this;
+
+    //토큰 복호화 하기 (decode 하기)
+    jwt.verify(token, 'secretToken', function(err,decoded){
+        //유저 아이디를 이용해서 유저 찾고 클라이언트에서 가져온 토큰과 DB토큰이 일치하는지 확인
+        user.findOne({"_id":decoded, "token":token},function(err,user){
+            if(err) return cb(err)
+            cb(null,user)
+        })
     })
 }
 
