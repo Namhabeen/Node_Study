@@ -1,7 +1,6 @@
 {
   "name": "js_study",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -20,5 +19,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Namhabeen/Node_Study.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Namhabeen/Node_Study/issues"
+  },
+  "homepage": "https://github.com/Namhabeen/Node_Study#readme",
+  "description": ""
 }
