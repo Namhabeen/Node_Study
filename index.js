@@ -9,7 +9,7 @@ const { User } = require("./models/user");
 const user = require('./models/user');
 const { auth } = require("./middleware/auth");
 
-//body-parser application 분석 (9-11) test
+//body-parser application 분석 (9-11) 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
